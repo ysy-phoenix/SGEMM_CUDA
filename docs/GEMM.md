@@ -1284,7 +1284,7 @@ processFromSmem<BM, BN, BK, WM, WN, WMITER, WNITER, WSUBM, WSUBN, TM, TN>(
 | 1: Naive                            | 朴素实现                  |
 | 2: GMEM Coalescing                  | 合并访存                  |
 | 3: SMEM Caching                     | 共享内存                  |
-| 4: 1D Blocktiling                   | 单 threead 计算一列       |
+| 4: 1D Blocktiling                   | 单 thread 计算一列        |
 | 5: 2D Blocktiling                   | 单 thread 计算一块        |
 | 6: Vectorized Mem Access            | 向量化访存                |
 | 7: Avoid Bank Conflicts (Linearize) | 划分以避免 bank conflicts |
