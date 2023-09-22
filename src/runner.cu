@@ -295,11 +295,17 @@ void runSgemmAutotuned(int M, int N, int K, float alpha, float *A, float *B,
   // const uint K9_BM = 64;
   // const uint K9_BN = 64;
   // A6000
+  // const uint K9_BK = 16;
+  // const uint K9_TM = 8;
+  // const uint K9_TN = 8;
+  // const uint K9_BM = 128;
+  // const uint K9_BN = 128;
+  // current A100
   const uint K9_BK = 16;
   const uint K9_TM = 8;
-  const uint K9_TN = 8;
+  const uint K9_TN = 4;
   const uint K9_BM = 128;
-  const uint K9_BN = 128;
+  const uint K9_BN = 64;
   dim3 blockDim(K9_NUM_THREADS);
 
   static_assert(
@@ -341,15 +347,25 @@ void runSgemmWarptiling(int M, int N, int K, float alpha, float *A, float *B,
   // const uint K10_TN = 4;
   // const uint K10_TM = 4;
   // Settings for A6000
+  // const uint K10_NUM_THREADS = 128;
+  // const uint K10_BN = 128;
+  // const uint K10_BM = 128;
+  // const uint K10_BK = 16;
+  // const uint K10_WN = 64;
+  // const uint K10_WM = 64;
+  // const uint K10_WNITER = 4;
+  // const uint K10_TN = 4;
+  // const uint K10_TM = 8;
+  // Setting for current A100
   const uint K10_NUM_THREADS = 128;
   const uint K10_BN = 128;
-  const uint K10_BM = 128;
+  const uint K10_BM = 64;
   const uint K10_BK = 16;
-  const uint K10_WN = 64;
+  const uint K10_WN = 32;
   const uint K10_WM = 64;
-  const uint K10_WNITER = 4;
-  const uint K10_TN = 4;
-  const uint K10_TM = 8;
+  const uint K10_WNITER = 1;
+  const uint K10_TN = 8;
+  const uint K10_TM = 4;
   dim3 blockDim(K10_NUM_THREADS);
 
   constexpr uint NUM_WARPS = K10_NUM_THREADS / 32;
@@ -392,25 +408,25 @@ void runSgemmWarptiling(int M, int N, int K, float alpha, float *A, float *B,
 void runSgemmDoubleBuffering(int M, int N, int K, float alpha, float *A,
                              float *B, float beta, float *C) {
   // Settings for A100
-  // const uint K11_NUM_THREADS = 256;
-  // const uint K11_BN = 128;
-  // const uint K11_BM = 64;
-  // const uint K11_BK = 16;
-  // const uint K11_WN = 32;
-  // const uint K11_WM = 32;
-  // const uint K11_WNITER = 2;
-  // const uint K11_TN = 4;
-  // const uint K11_TM = 4;
-  // Settings for A6000
   const uint K11_NUM_THREADS = 256;
-  const uint K11_BN = 256;
-  const uint K11_BM = 128;
+  const uint K11_BN = 128;
+  const uint K11_BM = 64;
   const uint K11_BK = 16;
   const uint K11_WN = 32;
-  const uint K11_WM = 128;
-  const uint K11_WNITER = 1;
-  const uint K11_TN = 8;
-  const uint K11_TM = 8;
+  const uint K11_WM = 32;
+  const uint K11_WNITER = 2;
+  const uint K11_TN = 4;
+  const uint K11_TM = 4;
+  // Settings for A6000
+  // const uint K11_NUM_THREADS = 256;
+  // const uint K11_BN = 256;
+  // const uint K11_BM = 128;
+  // const uint K11_BK = 16;
+  // const uint K11_WN = 32;
+  // const uint K11_WM = 128;
+  // const uint K11_WNITER = 1;
+  // const uint K11_TN = 8;
+  // const uint K11_TM = 8;
   dim3 blockDim(K11_NUM_THREADS);
 
   constexpr uint NUM_WARPS = K11_NUM_THREADS / 32;

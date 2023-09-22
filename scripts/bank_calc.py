@@ -27,7 +27,7 @@ def printBankConflicts(bank_fun):
 
 
 print("---NAIVE---")
-printBankConflicts(banks_naive, 32)
+printBankConflicts(banks_naive)
 
 print("\n---EXTRA COL---")
-printBankConflicts(banks_one_extra, 33)
+printBankConflicts(banks_one_extra)

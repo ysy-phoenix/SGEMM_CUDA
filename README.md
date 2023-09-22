@@ -14,16 +14,16 @@ GFLOPs at matrix size 4096x4096:
 | Kernel                              |   GFLOPs/s | Performance relative to cuBLAS   |
 |:------------------------------------|-----------:|:---------------------------------|
 | 1: Naive                            |      291.7 | 1.6%                             |
-| 2: GMEM Coalescing                  |     3411.6 | 18.3%                            |
-| 3: SMEM Caching                     |     5015   | 26.9%                            |
-| 4: 1D Blocktiling                   |    10710.3 | 57.5%                            |
-| 5: 2D Blocktiling                   |    14175.3 | 76.1%                            |
-| 8: Avoid Bank Conflicts (Offset)    |    14758.5 | 79.2%                            |
-| 7: Avoid Bank Conflicts (Linearize) |    15270.9 | 81.9%                            |
-| 6: Vectorized Mem Access            |    15395   | 82.6%                            |
-| 9: Autotuning                       |    15906.1 | 85.4%                            |
-| 10: Warptiling                      |    16039.6 | 86.1%                            |
-| 0: cuBLAS                           |    18636   | 100.0%                           |
+| 2: GMEM Coalescing                  |     3425.5 | 18.2%                            |
+| 3: SMEM Caching                     |     5012.1 | 26.7%                            |
+| 4: 1D Blocktiling                   |    10717.7 | 57.1%                            |
+| 5: 2D Blocktiling                   |    14174.3 | 75.5%                            |
+| 8: Avoid Bank Conflicts (Offset)    |    14764.8 | 78.6%                            |
+| 7: Avoid Bank Conflicts (Linearize) |    15269.4 | 81.3%                            |
+| 6: Vectorized Mem Access            |    15404.1 | 82.0%                            |
+| 9: Autotuning                       |    16376.8 | 87.2%                            |
+| 10: Warptiling                      |    17565   | 93.6%                            |
+| 0: cuBLAS                           |    18774.9 | 100.0%                           |
 <!-- benchmark_results -->
 
 ## Setup
